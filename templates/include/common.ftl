@@ -78,7 +78,7 @@
 </#macro>
 
 <#-- Set the global build tools version -->
-<#assign build_tools_version='"23.0.0"'/>
+<#assign build_tools_version='"23.0.1"'/>
 
 <#assign play_services_version="7.8.0"/>
 <#assign play_services_wearable_dependency="'com.google.android.gms:play-services-wearable:${play_services_version}'"/>
