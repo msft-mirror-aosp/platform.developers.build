@@ -65,6 +65,12 @@ android {
     defaultConfig {
         versionCode 1
         versionName "1.0"
+
+      <#if sample.targetSdkVersionWear?? && sample.targetSdkVersionWear?has_content>
+        targetSdkVersion ${sample.targetSdkVersionWear}
+      <#else>
+        targetSdkVersion ${compile_sdk}
+      </#if>
     }
 
     compileOptions {
