@@ -1,5 +1,5 @@
 
-Android Fingerprint Dialog Sample Sample
+Android FingerprintDialog Sample
 ===================================
 
 A sample that demonstrates to use registered fingerprints to authenticate the user in your app
@@ -12,9 +12,9 @@ before proceeding some actions such as purchasing an item.
 
 First you need to create a symmetric key in the Android Key Store using [KeyGenerator][1]
 which can be only be used after the user has authenticated with fingerprint and pass
-a [KeyGeneratorSpec][2].
+a [KeyGenParameterSpec][2].
 
-By setting [KeyGeneratorSpec.Builder.setUserAuthenticationRequired][3] to true, you can permit the
+By setting [KeyGenParameterSpec.Builder.setUserAuthenticationRequired][3] to true, you can permit the
 use of the key only after the user authenticate it including when authenticated with the user's
 fingerprint.
 
@@ -26,11 +26,11 @@ Once the fingerprint (or password) is verified, the
 [FingerprintManager.AuthenticationCallback#onAuthenticationSucceeded()][6] callback is called.
 
 [1]: https://developer.android.com/reference/javax/crypto/KeyGenerator.html
-[2]: https://developer.android.com/reference/android/security/KeyGenParameterSpec.html
-[3]: https://developer.android.com/reference/android/security/KeyGenParameterSpec.Builder#setUserAuthenticationRequired().html
-[4]: https://developer.android.com/reference/android/hardware/FingerprintManager#authenticate().html
+[2]: https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.html
+[3]: https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder.html#setUserAuthenticationRequired%28boolean%29
+[4]: https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager.html#authenticate%28android.hardware.fingerprint.FingerprintManager.CryptoObject,%20android.os.CancellationSignal,%20int,%20android.hardware.fingerprint.FingerprintManager.AuthenticationCallback,%20android.os.Handler%29
 [5]: https://developer.android.com/reference/javax/crypto/Cipher.html
-[6]: https://developer.android.com/reference/android/hardware/FingerprintManager.AuthenticationCallback#onAuthenticationSucceeded().html
+[6]: https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager.AuthenticationCallback.html#onAuthenticationSucceeded%28android.hardware.fingerprint.FingerprintManager.AuthenticationResult%29
 
 Pre-requisites
 --------------
@@ -57,7 +57,7 @@ Support
 - Stack Overflow: http://stackoverflow.com/questions/tagged/android
 
 If you've found an error in this sample, please file an issue:
-https://github.com/googlesamples/android-Fingerprint Dialog Sample
+https://github.com/googlesamples/android-FingerprintDialog
 
 Patches are encouraged, and may be submitted by forking this project and
 submitting a pull request through GitHub. Please see CONTRIBUTING.md for more details.

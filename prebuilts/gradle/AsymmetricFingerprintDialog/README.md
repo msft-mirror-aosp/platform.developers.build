@@ -1,5 +1,5 @@
 
-Android Asymmetric Fingerprint Dialog Sample Sample
+Android AsymmetricFingerprintDialog Sample
 ===================================
 
 A sample that demonstrates to use registered fingerprints to authenticate the user in your app
@@ -15,7 +15,7 @@ in the way that its private key can only be used after the user has authenticate
 and transmit the public key to your backend with the user verified password (In a real world, the
 app should show proper UIs).
 
-By setting [KeyGeneratorSpec.Builder.setUserAuthenticationRequired][2] to true, you can permit the
+By setting [KeyGenParameterSpec.Builder.setUserAuthenticationRequired][2] to true, you can permit the
 use of the key only after the user authenticate it including when authenticated with the user's
 fingerprint.
 
@@ -30,10 +30,10 @@ Then you can verify the purchase transaction on server side with the public key 
 client, by verifying the piece of data signed by the Signature.
 
 [1]: https://developer.android.com/reference/java/security/KeyPairGenerator.html
-[2]: https://developer.android.com/reference/android/security/KeyGenParameterSpec.Builder#setUserAuthenticationRequired().html
-[3]: https://developer.android.com/reference/android/hardware/FingerprintManager#authenticate().html
+[2]: https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder.html#setUserAuthenticationRequired%28boolean%29
+[3]: https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager.html#authenticate%28android.hardware.fingerprint.FingerprintManager.CryptoObject,%20android.os.CancellationSignal,%20int,%20android.hardware.fingerprint.FingerprintManager.AuthenticationCallback,%20android.os.Handler%29
 [4]: https://developer.android.com/reference/java/security/Signature.html
-[5]: https://developer.android.com/reference/android/hardware/FingerprintManager.AuthenticationCallback#onAuthenticationSucceeded().html
+[5]: https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager.AuthenticationCallback.html#onAuthenticationSucceeded%28android.hardware.fingerprint.FingerprintManager.AuthenticationResult%29
 
 Pre-requisites
 --------------
@@ -60,7 +60,7 @@ Support
 - Stack Overflow: http://stackoverflow.com/questions/tagged/android
 
 If you've found an error in this sample, please file an issue:
-https://github.com/googlesamples/android-Asymmetric Fingerprint Dialog Sample
+https://github.com/googlesamples/android-AsymmetricFingerprintDialog
 
 Patches are encouraged, and may be submitted by forking this project and
 submitting a pull request through GitHub. Please see CONTRIBUTING.md for more details.

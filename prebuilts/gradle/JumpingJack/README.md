@@ -11,7 +11,7 @@ Introduction
 [SensorEventListener][1] offers you methods used for receiving notifications from the
 [SensorManager][2] when sensor values have changed.
 
-This example counts how many times Jumping Jakcs are performed by detecting the value
+This example counts how many times Jumping Jacks are performed by detecting the value
 of the Gravity sensor by the following code:
 
 ```java
