@@ -37,15 +37,15 @@ dependencies {
 
 <#if !sample.auto_add_support_lib?has_content || sample.auto_add_support_lib == "true">
   <#if sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 7>
-    compile "com.android.support:support-v4:21.0.2"
+    compile "com.android.support:support-v4:24.0.0-alpha1"
   <#elseif sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 13>
-    compile "com.android.support:support-v4:21.0.2"
-    compile "com.android.support:gridlayout-v7:21.0.2"
-    compile "com.android.support:cardview-v7:21.0.2"
+    compile "com.android.support:support-v4:24.0.0-alpha1"
+    compile "com.android.support:gridlayout-v7:24.0.0-alpha1"
+    compile "com.android.support:cardview-v7:24.0.0-alpha1"
   <#else>
-    compile "com.android.support:support-v4:21.0.2"
-    compile "com.android.support:support-v13:21.0.2"
-    compile "com.android.support:cardview-v7:21.0.2"
+    compile "com.android.support:support-v4:24.0.0-alpha1"
+    compile "com.android.support:support-v13:24.0.0-alpha1"
+    compile "com.android.support:cardview-v7:24.0.0-alpha1"
   </#if>
 </#if>
 
@@ -79,8 +79,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     sourceSets {
