@@ -85,4 +85,4 @@
 
 <#assign android_support_v13_dependency="'com.android.support:support-v13:23.1.1'"/>
 
-<#assign wearable_support_dependency="'com.google.android.support:wearable:1.3.0'"/>
+<#assign wearable_support_dependency="'com.google.android.support:wearable:1.4.0'"/>
