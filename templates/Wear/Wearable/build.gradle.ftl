@@ -66,6 +66,16 @@ android {
         versionCode 1
         versionName "1.0"
 
+
+      <#if sample.minSdkVersionWear?? && sample.minSdkVersionWear?has_content>
+        minSdkVersion ${sample.minSdkVersionWear}
+      <#else>
+        minSdkVersion ${min_sdk}
+      </#if>
+
+
+
+
       <#if sample.targetSdkVersionWear?? && sample.targetSdkVersionWear?has_content>
         targetSdkVersion ${sample.targetSdkVersionWear}
       <#else>
