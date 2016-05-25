@@ -44,7 +44,13 @@ dependencies {
 </#list>
     compile ${play_services_wearable_dependency}
     compile ${android_support_v13_dependency}
+
+    <#if sample.preview_wearable_support_dependency?? && sample.preview_wearable_support_dependency?has_content>
+    compile '${sample.preview_wearable_support_dependency}'
+    <#else>
     compile ${wearable_support_dependency}
+    </#if>
+
     compile project(':Shared')
 }
 
