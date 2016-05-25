@@ -46,7 +46,13 @@ dependencies {
 
     compile ${play_services_wearable_dependency}
     compile ${android_support_v13_dependency}
+
+    <#if sample.preview_wearable_support_dependency?? && sample.preview_wearable_support_dependency?has_content>
+    compile '${sample.preview_wearable_support_dependency}'
+    <#else>
     compile ${wearable_support_dependency}
+    </#if>
+
 }
 
 // The sample build uses multiple directories to
@@ -66,15 +72,11 @@ android {
         versionCode 1
         versionName "1.0"
 
-
       <#if sample.minSdkVersionWear?? && sample.minSdkVersionWear?has_content>
         minSdkVersion ${sample.minSdkVersionWear}
       <#else>
         minSdkVersion ${min_sdk}
       </#if>
-
-
-
 
       <#if sample.targetSdkVersionWear?? && sample.targetSdkVersionWear?has_content>
         targetSdkVersion ${sample.targetSdkVersionWear}
