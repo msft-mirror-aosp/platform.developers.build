@@ -18,6 +18,7 @@ package com.example.android.scopeddirectoryaccess;
 
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -34,10 +35,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Fragment that displays the directory contents.
@@ -54,9 +57,11 @@ public class ScopedDirectoryAccessFragment extends Fragment {
             DocumentsContract.Document.COLUMN_DOCUMENT_ID,
     };
 
+    private Activity mActivity;
     private StorageManager mStorageManager;
     private TextView mCurrentDirectoryTextView;
     private TextView mNothingInDirectoryTextView;
+    private TextView mPrimaryVolumeNameTextView;
     private Spinner mDirectoriesSpinner;
     private DirectoryEntryAdapter mAdapter;
     private ArrayList<DirectoryEntry> mDirectoryEntries;
@@ -71,9 +76,10 @@ public class ScopedDirectoryAccessFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mStorageManager = getActivity().getSystemService(StorageManager.class);
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mActivity = getActivity();
+        mStorageManager = mActivity.getSystemService(StorageManager.class);
     }
 
     @Override
@@ -100,17 +106,52 @@ public class ScopedDirectoryAccessFragment extends Fragment {
                 .findViewById(R.id.textview_current_directory);
         mNothingInDirectoryTextView = (TextView) rootView
                 .findViewById(R.id.textview_nothing_in_directory);
-        Button openPictureButton = (Button) rootView.findViewById(R.id.button_open_directory);
+        mPrimaryVolumeNameTextView = (TextView) rootView
+                .findViewById(R.id.textview_primary_volume_name);
+
+        // Set onClickListener for the primary volume
+        Button openPictureButton = (Button) rootView
+                .findViewById(R.id.button_open_directory_primary_volume);
         openPictureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String selected = mDirectoriesSpinner.getSelectedItem().toString();
                 String directoryName = getDirectoryName(selected);
-                StorageVolume storageVolume = mStorageManager.getPrimaryVolume();
+                StorageVolume storageVolume = mStorageManager.getPrimaryStorageVolume();
                 Intent intent = storageVolume.createAccessIntent(directoryName);
                 startActivityForResult(intent, OPEN_DIRECTORY_REQUEST_CODE);
             }
         });
+
+        // Set onClickListener for the external volumes if exists
+        List<StorageVolume> storageVolumes = mStorageManager.getStorageVolumes();
+        LinearLayout containerVolumes = (LinearLayout) mActivity
+                .findViewById(R.id.container_volumes);
+        for (final StorageVolume volume : storageVolumes) {
+            String volumeDescription = volume.getDescription(mActivity);
+            if (volume.isPrimary()) {
+                // Primary volume area is already added...
+                if (volumeDescription != null) {
+                    // ...but with a default name: set it to the real name when available.
+                    mPrimaryVolumeNameTextView.setText(volumeDescription);
+                }
+                continue;
+            }
+            LinearLayout volumeArea = (LinearLayout) mActivity.getLayoutInflater()
+                    .inflate(R.layout.volume_entry, containerVolumes);
+            TextView volumeName = (TextView) volumeArea.findViewById(R.id.textview_volume_name);
+            volumeName.setText(volumeDescription);
+            Button button = (Button) volumeArea.findViewById(R.id.button_open_directory);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String selected = mDirectoriesSpinner.getSelectedItem().toString();
+                    String directoryName = getDirectoryName(selected);
+                    Intent intent = volume.createAccessIntent(directoryName);
+                    startActivityForResult(intent, OPEN_DIRECTORY_REQUEST_CODE);
+                }
+            });
+        }
         RecyclerView recyclerView = (RecyclerView) rootView
                 .findViewById(R.id.recyclerview_directory_entries);
         if (savedInstanceState != null) {

@@ -20,7 +20,7 @@ Starting from Android N, the system provides two storage locations for user data
     - A new storage location which is always available while the device is booted, both before and after any user credentials are entered
 
 Apps can mark individual components as being direct boot aware which indicates to the system that they can safely run when
-Credential protected storage is unavailable (an direct boot aware component primarily relies on data stored in the new Device protected storage area, 
+Credential protected storage is unavailable (an direct boot aware component primarily relies on data stored in the new Device protected storage area,
 but they may access Credential protected data when unlocked) by adding `directBootAware="true"` in the manifest.
 ```
 <activity|provider|receiver|service ...
@@ -43,8 +43,8 @@ device protected storage.
 Pre-requisites
 --------------
 
-- Android SDK Preview N
-- Android Build Tools v24.0.0 rc1
+- Android SDK 24
+- Android Build Tools v23.0.3
 - Android Support Repository
 
 Screenshots
