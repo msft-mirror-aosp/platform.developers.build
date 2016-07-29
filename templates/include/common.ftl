@@ -39,7 +39,7 @@
 <#elseif (sample.compileSdkVersion)?has_content>
     <#assign compile_sdk = sample.compileSdkVersion/>
 <#else>
-    <#assign compile_sdk = "23"/>
+    <#assign compile_sdk = "24"/>
 </#if>
 <#-- Set the MinSDK version. This is more complicated than it should be, because
       the version can be either a number or a string (e.g. KeyLimePie) so we need to test
@@ -60,7 +60,7 @@
 <#elseif (sample.minSdk)?has_content>
     <#assign min_sdk = sample.minSdk/>
 <#else>
-    <#assign min_sdk = "23"/>
+    <#assign min_sdk = "24"/>
 </#if>
 
 <#-- Global macros -->
@@ -78,7 +78,7 @@
 </#macro>
 
 <#-- Set the global build tools version -->
-<#assign build_tools_version='"23.0.3"'/>
+<#assign build_tools_version='"24.0.1"'/>
 
 <#assign play_services_version="8.4.0"/>
 <#assign play_services_wearable_dependency="'com.google.android.gms:play-services-wearable:${play_services_version}'"/>
