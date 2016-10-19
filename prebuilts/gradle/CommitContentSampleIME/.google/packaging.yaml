@@ -11,7 +11,7 @@ languages:    [Java]
 solutions:    [Mobile]
 github:       android-CommitContentSampleIME
 level:        INTERMEDIATE
-icon:         screenshots/web-icon.png
+icon:         screenshots/icon-web.png
 apiRefs:
     - android:android.widget.EditText
     - android:import android.support.v13.view.inputmethod.EditorInfoCompat
