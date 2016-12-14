@@ -1,17 +1,6 @@
 Android ${sample.name} Sample
 ===================================
 
-<#if sample.metadata.status == "DEPRECATED">
------------------------------------------------------------------------------
-**NOTICE: DEPRECATED.**
-
-This sample has been deprecated and is no longer being maintained. Code may
-fail to compile, or no longer represents best practices for development.
-Please check the API documentation associated with this project for updated
-information.
------------------------------------------------------------------------------
-
-</#if>
 <#if sample.metadata.description?is_node>
 ${sample.metadata.description?trim?replace('\\n\\n', '\n')?replace('\\"', '"')?replace('\t+', '', 'r')?replace('(^\n+|\n+$)', '', 'r')}
 <#else>
