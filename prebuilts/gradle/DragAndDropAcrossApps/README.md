@@ -50,8 +50,8 @@ until the activity is alive, or until the `release()` method is called on the
 Pre-requisites
 --------------
 
-- Android SDK 24
-- Android Build Tools v24.0.2
+- Android SDK 25
+- Android Build Tools v25.0.2
 - Android Support Repository
 
 Screenshots
