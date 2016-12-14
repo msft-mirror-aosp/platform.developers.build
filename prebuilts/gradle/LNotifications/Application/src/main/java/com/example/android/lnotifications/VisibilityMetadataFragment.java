@@ -16,17 +16,19 @@
 
 package com.example.android.lnotifications;
 
+import android.app.Fragment;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import java.util.Random;
 
 
 /**
@@ -43,10 +45,10 @@ public class VisibilityMetadataFragment extends Fragment {
     private RadioGroup mRadioGroup;
 
     /**
-     * Incremental int used for ID for notifications so that each notification will be
+     * Incremental Integer used for ID for notifications so that each notification will be
      * treated differently.
      */
-    private int mIncrementalNotificationId = 0;
+    private Integer mIncrementalNotificationId = Integer.valueOf(0);
 
     /**
      * Button to show a notification.
@@ -104,7 +106,8 @@ public class VisibilityMetadataFragment extends Fragment {
      *
      * @return A Notification instance.
      */
-    private Notification createNotification(NotificationVisibility visibility) {
+    //@VisibleForTesting
+    Notification createNotification(NotificationVisibility visibility) {
         Notification.Builder notificationBuilder = new Notification.Builder(getActivity())
                 .setContentTitle("Notification for Visibility metadata");
 
@@ -147,7 +150,7 @@ public class VisibilityMetadataFragment extends Fragment {
         // Assigns a unique (incremented) notification ID in order to treat each notification as a
         // different one. This helps demonstrate how a notification with a different visibility
         // level differs on the lockscreen.
-        mIncrementalNotificationId++;
+        mIncrementalNotificationId = new Integer(mIncrementalNotificationId + 1);
         mNotificationManager.notify(mIncrementalNotificationId, createNotification(visibility));
         Toast.makeText(getActivity(), "Show Notification clicked", Toast.LENGTH_SHORT).show();
     }
@@ -157,7 +160,8 @@ public class VisibilityMetadataFragment extends Fragment {
      * representation of visibility levels, an icon ID to create a notification) to
      * create a notification.
      */
-    private enum NotificationVisibility {
+    //@VisibleForTesting
+    static enum NotificationVisibility {
         PUBLIC(Notification.VISIBILITY_PUBLIC, "Public", R.drawable.ic_public_notification),
         PRIVATE(Notification.VISIBILITY_PRIVATE, "Private", R.drawable.ic_private_notification),
         SECRET(Notification.VISIBILITY_SECRET, "Secret", R.drawable.ic_secret_notification);

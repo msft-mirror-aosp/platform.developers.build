@@ -16,10 +16,12 @@
 
 package com.example.android.directboot.alarms;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.support.annotation.NonNull;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import android.support.annotation.NonNull;
 
 import java.util.Calendar;
 import java.util.Objects;
@@ -27,33 +29,53 @@ import java.util.Objects;
 /**
  * Class represents a single alarm.
  */
-public class Alarm implements Comparable<Alarm> {
+public class Alarm implements Comparable<Alarm>, Parcelable {
 
     public int id;
-
     public int month;
-
     public int date;
-
     /** Integer as a 24-hour format */
     public int hour;
-
     public int minute;
 
-    public Alarm(int id, int month, int date, int hour, int minute) {
-        this.id = id;
-        this.month = month;
-        this.date = date;
-        this.hour = hour;
-        this.minute = minute;
+    public Alarm() {}
+
+    protected Alarm(Parcel in) {
+        id = in.readInt();
+        month = in.readInt();
+        date = in.readInt();
+        hour = in.readInt();
+        minute = in.readInt();
     }
 
-    public Alarm() {
+    public static final Creator<Alarm> CREATOR = new Creator<Alarm>() {
+        @Override
+        public Alarm createFromParcel(Parcel in) {
+            return new Alarm(in);
+        }
+
+        @Override
+        public Alarm[] newArray(int size) {
+            return new Alarm[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeInt(month);
+        parcel.writeInt(date);
+        parcel.writeInt(hour);
+        parcel.writeInt(minute);
     }
 
     /**
      * Serialize the instance as a JSON String.
-     *
      * @return serialized JSON String.
      */
     public String toJson() {
