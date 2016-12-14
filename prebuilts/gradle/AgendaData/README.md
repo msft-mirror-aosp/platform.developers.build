@@ -22,8 +22,8 @@ success or failure. The sample shows implementations for both the success as wel
 Pre-requisites
 --------------
 
-- Android SDK 25
-- Android Build Tools v25.0.2
+- Android SDK 24
+- Android Build Tools v24.0.2
 - Android Support Repository
 
 Screenshots
