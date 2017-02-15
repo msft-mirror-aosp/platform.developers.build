@@ -83,7 +83,7 @@
 <#assign play_services_version="10.0.1"/>
 <#assign play_services_wearable_dependency="'com.google.android.gms:play-services-wearable:${play_services_version}'"/>
 
-<#assign android_support_v13_dependency="'com.android.support:support-v13:25.0.1'"/>
+<#assign android_support_v13_dependency="'com.android.support:support-v13:25.1.1'"/>
 
 <#assign wearable_support_dependency="'com.google.android.support:wearable:2.0.0'"/>
 
