@@ -19,7 +19,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
+        classpath 'com.android.tools.build:gradle:2.3.2'
     }
 }
 
@@ -37,18 +37,18 @@ repositories {
 dependencies {
 <#if !sample.auto_add_support_lib?has_content || sample.auto_add_support_lib == "true">
   <#if sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 7>
-    compile "com.android.support:support-v4:25.0.1"
-    compile "com.android.support:appcompat-v7:25.0.1"
+    compile "com.android.support:support-v4:25.3.1"
+    compile "com.android.support:appcompat-v7:25.3.1"
   <#elseif sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 13>
-    compile "com.android.support:support-v4:25.0.1"
-    compile "com.android.support:gridlayout-v7:25.0.1"
-    compile "com.android.support:cardview-v7:25.0.1"
-    compile "com.android.support:appcompat-v7:25.0.1"
+    compile "com.android.support:support-v4:25.3.1"
+    compile "com.android.support:gridlayout-v7:25.3.1"
+    compile "com.android.support:cardview-v7:25.3.1"
+    compile "com.android.support:appcompat-v7:25.3.1"
   <#else>
-    compile "com.android.support:support-v4:25.0.1"
-    compile "com.android.support:support-v13:25.0.1"
-    compile "com.android.support:cardview-v7:25.0.1"
-    compile "com.android.support:appcompat-v7:25.0.1"
+    compile "com.android.support:support-v4:25.3.1"
+    compile "com.android.support:support-v13:25.3.1"
+    compile "com.android.support:cardview-v7:25.3.1"
+    compile "com.android.support:appcompat-v7:25.3.1"
   </#if>
 </#if>
 <#list sample.dependency as dep>
