@@ -16,6 +16,9 @@
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url 'https://maven.google.com'
+        }
     }
 
     dependencies {
@@ -41,15 +44,15 @@ dependencies {
 
 <#if !sample.auto_add_support_lib?has_content || sample.auto_add_support_lib == "true">
   <#if sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 7>
-    compile "com.android.support:support-v4:25.1.1"
+    compile "com.android.support:support-v4:26.1.0"
   <#elseif sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 13>
-    compile "com.android.support:support-v4:25.1.1"
-    compile "com.android.support:gridlayout-v7:25.1.1"
-    compile "com.android.support:cardview-v7:25.1.1"
+    compile "com.android.support:support-v4:26.1.0"
+    compile "com.android.support:gridlayout-v7:26.1.0"
+    compile "com.android.support:cardview-v7:26.1.0"
   <#else>
-    compile "com.android.support:support-v4:25.1.1"
-    compile "com.android.support:support-v13:25.1.1"
-    compile "com.android.support:cardview-v7:25.1.1"
+    compile "com.android.support:support-v4:26.1.0"
+    compile "com.android.support:support-v13:26.1.0"
+    compile "com.android.support:cardview-v7:26.1.0"
   </#if>
 </#if>
 
