@@ -80,11 +80,11 @@
 <#-- Set the global build tools version -->
 <#assign build_tools_version='"26.0.1"'/>
 
-<#assign play_services_version="11.4.0"/>
+<#assign play_services_version="11.4.2"/>
 <#assign play_services_wearable_dependency="'com.google.android.gms:play-services-wearable:${play_services_version}'"/>
 
-<#assign android_support_v13_dependency="'com.android.support:support-v13:26.1.0'"/>
+<#assign android_support_v13_dependency="'com.android.support:support-v13:27.0.0'"/>
 
-<#assign wearable_support_dependency="'com.google.android.support:wearable:2.0.5'"/>
+<#assign wearable_support_dependency="'com.google.android.support:wearable:2.1.0'"/>
 
-<#assign wearable_support_provided_dependency="'com.google.android.wearable:wearable:2.0.5'"/>
+<#assign wearable_support_provided_dependency="'com.google.android.wearable:wearable:2.1.0'"/>
