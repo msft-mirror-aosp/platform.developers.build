@@ -19,33 +19,37 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.3'
+        classpath 'com.android.tools.build:gradle:2.3.3'
     }
 }
 
 apply plugin: 'com.android.application'
 
-<#if sample.repository?has_content>
 repositories {
-<#list sample.repository as rep>
+    jcenter()
+    maven {
+        url 'https://maven.google.com'
+    }
+<#if sample.repository?has_content>
+    <#list sample.repository as rep>
     ${rep}
-</#list>
-}
+    </#list>
 </#if>
+}
 
 dependencies {
 
 <#if !sample.auto_add_support_lib?has_content || sample.auto_add_support_lib == "true">
   <#if sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 7>
-    compile "com.android.support:support-v4:24.2.1"
+    compile "com.android.support:support-v4:25.1.1"
   <#elseif sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 13>
-    compile "com.android.support:support-v4:24.2.1"
-    compile "com.android.support:gridlayout-v7:24.2.1"
-    compile "com.android.support:cardview-v7:24.2.1"
+    compile "com.android.support:support-v4:25.1.1"
+    compile "com.android.support:gridlayout-v7:25.1.1"
+    compile "com.android.support:cardview-v7:25.1.1"
   <#else>
-    compile "com.android.support:support-v4:24.2.1"
-    compile "com.android.support:support-v13:24.2.1"
-    compile "com.android.support:cardview-v7:24.2.1"
+    compile "com.android.support:support-v4:25.1.1"
+    compile "com.android.support:support-v13:25.1.1"
+    compile "com.android.support:cardview-v7:25.1.1"
   </#if>
 </#if>
 
@@ -70,12 +74,21 @@ List<String> dirs = [
 android {
      <#-- Note that target SDK is hardcoded in this template. We expect all samples
           to always use the most current SDK as their target. -->
-    compileSdkVersion ${compile_sdk}
+     <#if sample.compileSdkVersion?? && sample.compileSdkVersion?has_content>
+        compileSdkVersion ${sample.compileSdkVersion}
+      <#else>
+        compileSdkVersion ${compile_sdk}
+      </#if>
+
     buildToolsVersion ${build_tools_version}
 
     defaultConfig {
         minSdkVersion ${min_sdk}
         targetSdkVersion ${compile_sdk}
+
+<#if sample.use_support_library_vector_drawables?has_content && sample.use_support_library_vector_drawables == "true">
+        vectorDrawables.useSupportLibrary = true
+</#if>
     }
 
     compileOptions {

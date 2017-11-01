@@ -1,5 +1,5 @@
 
-Android Wear Notifications Sample
+Android WearNotifications Sample
 ===================================
 
 Sample demonstrates best practices for using NotificationStyle Notifications (Inbox,
@@ -10,44 +10,44 @@ Introduction
 ------------
 
 Steps for trying out the sample:
-            * Compile and install the mobile app onto your mobile device or emulator (for mobile
-            scenario).
-            * Compile and install the wearable app onto your Wear device or emulator (for Wear
-            scenario).
+* Compile and install the mobile app onto your mobile device or emulator (for mobile
+scenario).
+* Compile and install the wearable app onto your Wear device or emulator (for Wear
+scenario).
 
-            This sample demonstrate best practices for using [NotificationStyle][1]
-            [Notifications][2] for two scenarios:
+This sample demonstrate best practices for using [NotificationStyle][1]
+[Notifications][2] for two scenarios:
 
-            1. Launching Notifications from a Mobile app WITHOUT a native Android Wear app.
-            Notifications appear both on mobile and Wear (bridged to appear like a local/native
-            Wear app).
+1. Launching Notifications from a Mobile app WITHOUT a native Android Wear app.
+Notifications appear both on mobile and Wear (bridged to appear like a local/native
+Wear app).
 
-            2. Launching Notifications from a Native/Local Android Wear app. Notifications only
-            appear on Wear device.
+2. Launching Notifications from a Native/Local Android Wear app. Notifications only
+appear on Wear device.
 
-            The Mobile and Wear apps demonstrate [BigTextStyle][3], [BigPictureStyle][4],
-            [InboxStyle][5], and [MessagingStyle][6] Notifications.
+The Mobile and Wear apps demonstrate [BigTextStyle][3], [BigPictureStyle][4],
+[InboxStyle][5], and [MessagingStyle][6] Notifications.
 
-            Although there are two apps (Mobile and Wear) running, each should be looked at as a
-            separate experience. That is, neither app uses nor relies on the other.
+Although there are two apps (Mobile and Wear) running, each should be looked at as a
+separate experience. That is, neither app uses nor relies on the other.
 
-            They are packaged together simply to show both scenarios in one easy sample.
+They are packaged together simply to show both scenarios in one easy sample.
 
-            Both apps also cover the Notifications being displayed on Wear 1.+ and/or Wear 2.0 and
-            using some of the new features of Wear 2.0 (inline actions).
+Both apps also cover the Notifications being displayed on Wear 1.+ and/or Wear 2.0 and
+using some of the new features of Wear 2.0 (inline actions).
 
-            [1]: https://developer.android.com/reference/android/support/v4/app/NotificationCompat.Style.html
-            [2]: https://developer.android.com/reference/android/support/v4/app/NotificationCompat.html
-            [3]: https://developer.android.com/reference/android/support/v4/app/NotificationCompat.BigTextStyle.html
-            [4]: https://developer.android.com/reference/android/support/v4/app/NotificationCompat.BigPictureStyle.html
-            [5]: https://developer.android.com/reference/android/support/v4/app/NotificationCompat.InboxStyle.html
-            [6]: https://developer.android.com/reference/android/support/v4/app/NotificationCompat.MessagingStyle.html
+[1]: https://developer.android.com/reference/android/support/v4/app/NotificationCompat.Style.html
+[2]: https://developer.android.com/reference/android/support/v4/app/NotificationCompat.html
+[3]: https://developer.android.com/reference/android/support/v4/app/NotificationCompat.BigTextStyle.html
+[4]: https://developer.android.com/reference/android/support/v4/app/NotificationCompat.BigPictureStyle.html
+[5]: https://developer.android.com/reference/android/support/v4/app/NotificationCompat.InboxStyle.html
+[6]: https://developer.android.com/reference/android/support/v4/app/NotificationCompat.MessagingStyle.html
 
 Pre-requisites
 --------------
 
-- Android SDK 24
-- Android Build Tools v24.0.2
+- Android SDK 26
+- Android Build Tools v25.0.3
 - Android Support Repository
 
 Screenshots
@@ -68,7 +68,7 @@ Support
 - Stack Overflow: http://stackoverflow.com/questions/tagged/android
 
 If you've found an error in this sample, please file an issue:
-https://github.com/googlesamples/android-Wear Notifications
+https://github.com/googlesamples/android-WearNotifications
 
 Patches are encouraged, and may be submitted by forking this project and
 submitting a pull request through GitHub. Please see CONTRIBUTING.md for more details.
@@ -76,7 +76,7 @@ submitting a pull request through GitHub. Please see CONTRIBUTING.md for more de
 License
 -------
 
-Copyright 2016 The Android Open Source Project, Inc.
+Copyright 2017 The Android Open Source Project, Inc.
 
 Licensed to the Apache Software Foundation (ASF) under one or more contributor
 license agreements.  See the NOTICE file distributed with this work for
