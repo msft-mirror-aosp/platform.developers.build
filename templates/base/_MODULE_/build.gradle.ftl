@@ -15,11 +15,14 @@
 -->
 buildscript {
     repositories {
+        maven {
+            url 'https://maven.google.com'
+        }
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.0'
     }
 }
 
@@ -40,18 +43,18 @@ repositories {
 dependencies {
 <#if !sample.auto_add_support_lib?has_content || sample.auto_add_support_lib == "true">
   <#if sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 7>
-    compile "com.android.support:support-v4:26.1.0"
-    compile "com.android.support:appcompat-v7:26.1.0"
+    compile "com.android.support:support-v4:27.0.0"
+    compile "com.android.support:appcompat-v7:27.0.0"
   <#elseif sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 13>
-    compile "com.android.support:support-v4:26.1.0"
-    compile "com.android.support:gridlayout-v7:26.1.0"
-    compile "com.android.support:cardview-v7:26.1.0"
-    compile "com.android.support:appcompat-v7:26.1.0"
+    compile "com.android.support:support-v4:27.0.0"
+    compile "com.android.support:gridlayout-v7:27.0.0"
+    compile "com.android.support:cardview-v7:27.0.0"
+    compile "com.android.support:appcompat-v7:27.0.0"
   <#else>
-    compile "com.android.support:support-v4:26.1.0"
-    compile "com.android.support:support-v13:26.1.0"
-    compile "com.android.support:cardview-v7:26.1.0"
-    compile "com.android.support:appcompat-v7:26.1.0"
+    compile "com.android.support:support-v4:27.0.0"
+    compile "com.android.support:support-v13:27.0.0"
+    compile "com.android.support:cardview-v7:27.0.0"
+    compile "com.android.support:appcompat-v7:27.0.0"
   </#if>
 </#if>
 <#list sample.dependency as dep>
