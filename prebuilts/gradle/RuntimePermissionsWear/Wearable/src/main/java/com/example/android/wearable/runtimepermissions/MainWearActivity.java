@@ -26,6 +26,7 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.wearable.activity.WearableActivity;
+import android.support.wearable.view.WatchViewStub;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -107,22 +108,30 @@ public class MainWearActivity extends WearableActivity implements
         mPhoneRequestingWearSensorPermission =
                 getIntent().getBooleanExtra(EXTRA_PROMPT_PERMISSION_FROM_PHONE, false);
 
-        mWearBodySensorsPermissionButton =
-                (Button) findViewById(R.id.wear_body_sensors_permission_button);
+        final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
+        stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
+            @Override
+            public void onLayoutInflated(WatchViewStub stub) {
 
-        if (mWearBodySensorsPermissionApproved) {
-            mWearBodySensorsPermissionButton.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_permission_approved, 0, 0, 0);
-        }
+                mWearBodySensorsPermissionButton =
+                        (Button) stub.findViewById(R.id.wearBodySensorsPermissionButton);
 
-        mPhoneStoragePermissionButton = (Button) findViewById(R.id.phone_storage_permission_button);
+                if (mWearBodySensorsPermissionApproved) {
+                    mWearBodySensorsPermissionButton.setCompoundDrawablesWithIntrinsicBounds(
+                            R.drawable.ic_permission_approved, 0, 0, 0);
+                }
 
-        mOutputTextView = (TextView) findViewById(R.id.output);
+                mPhoneStoragePermissionButton =
+                        (Button) stub.findViewById(R.id.phoneStoragePermissionButton);
 
-        if (mPhoneRequestingWearSensorPermission) {
-            launchPermissionDialogForPhone();
-        }
+                mOutputTextView = (TextView) stub.findViewById(R.id.output);
 
+                if (mPhoneRequestingWearSensorPermission) {
+                    launchPermissionDialogForPhone();
+                }
+
+            }
+        });
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(Wearable.API)
