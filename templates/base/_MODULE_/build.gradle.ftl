@@ -19,7 +19,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:2.3.2'
     }
 }
 
@@ -27,9 +27,6 @@ apply plugin: 'com.android.application'
 
 repositories {
     jcenter()
-    maven {
-        url 'https://maven.google.com'
-    }
 <#if sample.repository?has_content>
 <#list sample.repository as rep>
     ${rep}
@@ -80,13 +77,7 @@ List<String> dirs = [
 android {
      <#-- Note that target SDK is hardcoded in this template. We expect all samples
           to always use the most current SDK as their target. -->
-    
-     <#if sample.compileSdkVersion?? && sample.compileSdkVersion?has_content>
-        compileSdkVersion ${sample.compileSdkVersion}
-      <#else>
-        compileSdkVersion ${compile_sdk}
-      </#if>
-
+    compileSdkVersion ${compile_sdk}
     buildToolsVersion ${build_tools_version}
 
     defaultConfig {
