@@ -21,10 +21,8 @@ to recognize this as an Android project and start the template engine. -->
 
 buildscript {
     repositories {
-        maven {
-            url 'https://maven.google.com'
-        }
         jcenter()
+        google()
     }
 
     dependencies {
