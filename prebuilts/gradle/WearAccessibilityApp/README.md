@@ -2,32 +2,34 @@
 Android WearAccessibilityApp Sample
 ===================================
 
-Sample demonstrating how to instantiate an ActionBar on Android, define
-            action items, and set an "up" navigation link. Uses the Support Library
-            for compatibility with pre-3.0 devices.
+Sample demonstrates how to include accessibility support for your wearable app.
 
 Introduction
 ------------
 
-Long intro here.
+Accessibility is an important part of any app (especially wearable apps). By
+            integrating accessible components and services, you can improve your app's usability,
+            particularly for users with disabilities.
 
-            Multi-paragraph introduction to sample, from an educational point-of-view.
-            *Makrdown* formatting allowed. See [Markdown Documentation][1]
-            for details.
+            This sample demonstrates common UX patterns in wearable apps along with accessibility
+            support of those patterns. Be sure to review the [Accessibility Developer Checklist][1]
+            for your own app. For additional information please see our
+            [Best Practices for User Interface][2] page.
 
-            [1]: http://daringfireball.net/projects/markdown/syntax
+            [1]: https://developer.android.com/guide/topics/ui/accessibility/checklist.html
+            [2]: https://developer.android.com/training/accessibility/index.html
 
 Pre-requisites
 --------------
 
 - Android SDK 27
-- Android Build Tools v26.0.2
+- Android Build Tools v27.0.2
 - Android Support Repository
 
 Screenshots
 -------------
 
-<img src="screenshots/1-main.png" height="400" alt="Screenshot"/> <img src="screenshots/2-settings.png" height="400" alt="Screenshot"/> 
+<img src="screenshots/main_screen.png" height="400" alt="Screenshot"/> <img src="screenshots/progress_screen.png" height="400" alt="Screenshot"/> <img src="screenshots/controls_screen.png" height="400" alt="Screenshot"/> 
 
 Getting Started
 ---------------
