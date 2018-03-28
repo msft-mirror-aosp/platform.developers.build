@@ -78,13 +78,13 @@
 </#macro>
 
 <#-- Set the global build tools version -->
-<#assign build_tools_version='"27.0.2"'/>
+<#assign build_tools_version='"27.0.3"'/>
 
 <#assign play_services_version="11.8.0"/>
 <#assign play_services_wearable_dependency="'com.google.android.gms:play-services-wearable:${play_services_version}'"/>
 
-<#assign android_support_v13_dependency="'com.android.support:support-v13:27.0.2'"/>
+<#assign android_support_v13_dependency="'com.android.support:support-v13:27.1.0'"/>
 
-<#assign wearable_support_dependency="'com.google.android.support:wearable:2.2.0'"/>
+<#assign wearable_support_dependency="'com.google.android.support:wearable:2.3.0'"/>
 
-<#assign wearable_support_provided_dependency="'com.google.android.wearable:wearable:2.2.0'"/>
+<#assign wearable_support_provided_dependency="'com.google.android.wearable:wearable:2.3.0'"/>
