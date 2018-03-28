@@ -40,15 +40,15 @@ dependencies {
 
 <#if !sample.auto_add_support_lib?has_content || sample.auto_add_support_lib == "true">
   <#if sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 7>
-    compile "com.android.support:support-v4:27.0.2"
+    compile "com.android.support:support-v4:27.1.0"
   <#elseif sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 13>
-    compile "com.android.support:support-v4:27.0.2"
-    compile "com.android.support:gridlayout-v7:27.0.2"
-    compile "com.android.support:cardview-v7:27.0.2"
+    compile "com.android.support:support-v4:27.1.0"
+    compile "com.android.support:gridlayout-v7:27.1.0"
+    compile "com.android.support:cardview-v7:27.1.0"
   <#else>
-    compile "com.android.support:support-v4:27.0.2"
-    compile "com.android.support:support-v13:27.0.2"
-    compile "com.android.support:cardview-v7:27.0.2"
+    compile "com.android.support:support-v4:27.1.0"
+    compile "com.android.support:support-v13:27.1.0"
+    compile "com.android.support:cardview-v7:27.1.0"
   </#if>
 </#if>
 
