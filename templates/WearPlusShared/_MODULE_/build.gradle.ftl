@@ -20,7 +20,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.1.3'
     }
 }
 
@@ -43,11 +43,11 @@ dependencies {
     <@update_play_services_dependency dep="${dep}" />
 </#list>
 <#list sample.dependency_external as dep>
-    compile files(${dep})
+    implementation files(${dep})
 </#list>
-    compile ${play_services_wearable_dependency}
-    compile ${android_support_v13_dependency}
-    compile project(':Shared')
+    implementation ${play_services_wearable_dependency}
+    implementation ${android_support_v13_dependency}
+    implementation project(':Shared')
     wearApp project(':Wearable')
 }
 
