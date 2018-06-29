@@ -20,7 +20,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.1.3'
     }
 }
 
@@ -40,15 +40,15 @@ dependencies {
 
 <#if !sample.auto_add_support_lib?has_content || sample.auto_add_support_lib == "true">
   <#if sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 7>
-    compile "com.android.support:support-v4:27.1.0"
+    implementation "com.android.support:support-v4:27.1.1"
   <#elseif sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 13>
-    compile "com.android.support:support-v4:27.1.0"
-    compile "com.android.support:gridlayout-v7:27.1.0"
-    compile "com.android.support:cardview-v7:27.1.0"
+    implementation "com.android.support:support-v4:27.1.1"
+    implementation "com.android.support:gridlayout-v7:27.1.1"
+    implementation "com.android.support:cardview-v7:27.1.1"
   <#else>
-    compile "com.android.support:support-v4:27.1.0"
-    compile "com.android.support:support-v13:27.1.0"
-    compile "com.android.support:cardview-v7:27.1.0"
+    implementation "com.android.support:support-v4:27.1.1"
+    implementation "com.android.support:support-v13:27.1.1"
+    implementation "com.android.support:cardview-v7:27.1.1"
   </#if>
 </#if>
 
@@ -58,7 +58,7 @@ dependencies {
     <@update_play_services_dependency dep="${dep}" />
 </#list>
 <#list sample.dependency_external as dep>
-    compile files(${dep})
+    implementation files(${dep})
 </#list>
 }
 
