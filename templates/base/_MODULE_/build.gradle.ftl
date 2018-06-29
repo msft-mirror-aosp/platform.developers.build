@@ -20,7 +20,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.1.3'
     }
 }
 
@@ -39,18 +39,18 @@ repositories {
 dependencies {
 <#if !sample.auto_add_support_lib?has_content || sample.auto_add_support_lib == "true">
   <#if sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 7>
-    compile "com.android.support:support-v4:27.1.0"
-    compile "com.android.support:appcompat-v7:27.1.0"
+    implementation "com.android.support:support-v4:27.1.1"
+    implementation "com.android.support:appcompat-v7:27.1.1"
   <#elseif sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 13>
-    compile "com.android.support:support-v4:27.1.0"
-    compile "com.android.support:gridlayout-v7:27.1.0"
-    compile "com.android.support:cardview-v7:27.1.0"
-    compile "com.android.support:appcompat-v7:27.1.0"
+    implementation "com.android.support:support-v4:27.1.1"
+    implementation "com.android.support:gridlayout-v7:27.1.1"
+    implementation "com.android.support:cardview-v7:27.1.1"
+    implementation "com.android.support:appcompat-v7:27.1.1"
   <#else>
-    compile "com.android.support:support-v4:27.1.0"
-    compile "com.android.support:support-v13:27.1.0"
-    compile "com.android.support:cardview-v7:27.1.0"
-    compile "com.android.support:appcompat-v7:27.1.0"
+    implementation "com.android.support:support-v4:27.1.1"
+    implementation "com.android.support:support-v13:27.1.1"
+    implementation "com.android.support:cardview-v7:27.1.1"
+    implementation "com.android.support:appcompat-v7:27.1.1"
   </#if>
 </#if>
 <#list sample.dependency as dep>
@@ -59,11 +59,11 @@ dependencies {
     <@update_play_services_dependency dep="${dep}" />
 </#list>
 <#list sample.dependency_external as dep>
-    compile files(${dep})
+    implementation files(${dep})
 </#list>
 <#if sample.wearable.has_handheld_app?has_content && sample.wearable.has_handheld_app?lower_case == "true">
-    compile ${play_services_wearable_dependency}
-    compile ${android_support_v13_dependency}
+    implementation ${play_services_wearable_dependency}
+    implementation ${android_support_v13_dependency}
     wearApp project(':Wearable')
 </#if>
 }
