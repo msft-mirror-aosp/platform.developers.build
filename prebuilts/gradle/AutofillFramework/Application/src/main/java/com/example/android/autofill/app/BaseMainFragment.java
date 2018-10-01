@@ -12,36 +12,13 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+*/
 
-buildscript {
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
-    }
+package com.example.android.autofill.app;
+
+import android.support.annotation.StringRes;
+import android.support.v4.app.Fragment;
+
+public abstract class BaseMainFragment extends Fragment {
+    public abstract @StringRes int getPageTitleResId();
 }
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-
-
-
-
-
-
-
-
-
-
-

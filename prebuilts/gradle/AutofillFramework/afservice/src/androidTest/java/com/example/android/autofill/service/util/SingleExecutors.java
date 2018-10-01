@@ -14,34 +14,17 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
-    }
-}
+package com.example.android.autofill.service.util;
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
+import java.util.concurrent.Executor;
+
+/**
+ * Allow instant execution of tasks.
+ */
+public final class SingleExecutors extends AppExecutors {
+    private static Executor sInstance = Runnable::run;
+
+    public SingleExecutors() {
+        super(sInstance, sInstance, sInstance);
     }
 }
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-
-
-
-
-
-
-
-
-
-
-

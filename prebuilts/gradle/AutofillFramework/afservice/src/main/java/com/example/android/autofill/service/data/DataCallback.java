@@ -14,34 +14,10 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
-    }
+package com.example.android.autofill.service.data;
+
+public interface DataCallback<T> {
+    void onLoaded(T object);
+
+    void onDataNotAvailable(String msg, Object... params);
 }
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-
-
-
-
-
-
-
-
-
-
-

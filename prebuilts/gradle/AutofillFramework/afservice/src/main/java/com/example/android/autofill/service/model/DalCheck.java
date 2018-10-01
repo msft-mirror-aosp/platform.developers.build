@@ -14,34 +14,10 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
-    }
+package com.example.android.autofill.service.model;
+
+public class DalCheck {
+    public boolean linked;
+    public String maxAge;
+    public String debugString;
 }
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-
-
-
-
-
-
-
-
-
-
-
