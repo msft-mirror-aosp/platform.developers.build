@@ -15,8 +15,8 @@
 -->
 buildscript {
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
 
     dependencies {
@@ -32,8 +32,8 @@ buildscript {
 apply plugin: 'com.android.application'
 
 repositories {
-    jcenter()
     google()
+    jcenter()
 <#if sample.repository?has_content>
 <#list sample.repository as rep>
     ${rep}
