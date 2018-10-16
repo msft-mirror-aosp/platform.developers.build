@@ -44,28 +44,22 @@ repositories {
 
 dependencies {
 
-
   <#-- TODO (jewalker): Revise once androidX is released to production. -->
   <#if !sample.androidX?? || !sample.androidX?has_content || sample.androidX == "false">
-
     <#if !sample.auto_add_support_lib?has_content || sample.auto_add_support_lib == "true">
       <#if sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 7>
-        implementation "com.android.support:support-v4:27.1.1"
+    implementation "com.android.support:support-v4:27.1.1"
       <#elseif sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 13>
-        implementation "com.android.support:support-v4:27.1.1"
-        implementation "com.android.support:gridlayout-v7:27.1.1"
-        implementation "com.android.support:cardview-v7:27.1.1"
+    implementation "com.android.support:support-v4:27.1.1"
+    implementation "com.android.support:gridlayout-v7:27.1.1"
+    implementation "com.android.support:cardview-v7:27.1.1"
       <#else>
-        implementation "com.android.support:support-v4:27.1.1"
-        implementation "com.android.support:support-v13:27.1.1"
-        implementation "com.android.support:cardview-v7:27.1.1"
+    implementation "com.android.support:support-v4:27.1.1"
+    implementation "com.android.support:support-v13:27.1.1"
+    implementation "com.android.support:cardview-v7:27.1.1"
       </#if>
     </#if>
-
   </#if>
-
-
-
 
 <#list sample.dependency as dep>
     <#-- Output dependency after checking if it is a play services depdency and
