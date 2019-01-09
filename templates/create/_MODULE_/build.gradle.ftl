@@ -21,8 +21,8 @@ to recognize this as an Android project and start the template engine. -->
 
 buildscript {
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
 
     dependencies {
