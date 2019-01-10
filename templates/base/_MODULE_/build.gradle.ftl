@@ -20,12 +20,7 @@ buildscript {
     }
 
     dependencies {
-      <#-- TODO (jewalker): Remove once 3.2 is in production. -->
-      <#if sample.androidX?? && sample.androidX?has_content && sample.androidX == "true">
         classpath 'com.android.tools.build:gradle:3.2.1'
-      <#else>
-        classpath 'com.android.tools.build:gradle:3.1.3'
-      </#if>
     }
 }
 
@@ -48,18 +43,18 @@ dependencies {
 
     <#if !sample.auto_add_support_lib?has_content || sample.auto_add_support_lib == "true">
       <#if sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 7>
-        implementation "com.android.support:support-v4:27.1.1"
-        implementation "com.android.support:appcompat-v7:27.1.1"
+        implementation "com.android.support:support-v4:28.0.0"
+        implementation "com.android.support:appcompat-v7:28.0.0"
       <#elseif sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 13>
-        implementation "com.android.support:support-v4:27.1.1"
-        implementation "com.android.support:gridlayout-v7:27.1.1"
-        implementation "com.android.support:cardview-v7:27.1.1"
-        implementation "com.android.support:appcompat-v7:27.1.1"
+        implementation "com.android.support:support-v4:28.0.0"
+        implementation "com.android.support:gridlayout-v7:28.0.0"
+        implementation "com.android.support:cardview-v7:28.0.0"
+        implementation "com.android.support:appcompat-v7:28.0.0"
       <#else>
-        implementation "com.android.support:support-v4:27.1.1"
-        implementation "com.android.support:support-v13:27.1.1"
-        implementation "com.android.support:cardview-v7:27.1.1"
-        implementation "com.android.support:appcompat-v7:27.1.1"
+        implementation "com.android.support:support-v4:28.0.0"
+        implementation "com.android.support:support-v13:28.0.0"
+        implementation "com.android.support:cardview-v7:28.0.0"
+        implementation "com.android.support:appcompat-v7:28.0.0"
       </#if>
     </#if>
 

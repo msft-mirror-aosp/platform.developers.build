@@ -20,12 +20,7 @@ buildscript {
     }
 
     dependencies {
-      <#-- TODO (jewalker): Remove once 3.2 is in production. -->
-      <#if sample.androidX?? && sample.androidX?has_content && sample.androidX == "true">
-        classpath 'com.android.tools.build:gradle:3.2.0-beta01'
-      <#else>
-        classpath 'com.android.tools.build:gradle:3.1.3'
-      </#if>
+        classpath 'com.android.tools.build:gradle:3.2.1'
     }
 }
 
