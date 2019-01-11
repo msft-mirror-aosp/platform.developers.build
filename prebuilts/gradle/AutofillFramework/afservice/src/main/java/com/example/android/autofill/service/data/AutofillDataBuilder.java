@@ -14,34 +14,12 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
-    }
+package com.example.android.autofill.service.data;
+
+import com.example.android.autofill.service.model.DatasetWithFilledAutofillFields;
+
+import java.util.List;
+
+public interface AutofillDataBuilder {
+    List<DatasetWithFilledAutofillFields> buildDatasetsByPartition(int datasetNumber);
 }
-
-allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-
-
-
-
-
-
-
-
-
-
-
