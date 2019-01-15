@@ -20,7 +20,13 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+
+      <#-- TODO (jewalker): Remove once 3.2 is in production. -->
+      <#if sample.androidX?? && sample.androidX?has_content && sample.androidX == "true">
+        classpath 'com.android.tools.build:gradle:3.2.0-beta01'
+      <#else>
+        classpath 'com.android.tools.build:gradle:3.1.3'
+      </#if>
     }
 }
 
@@ -38,27 +44,37 @@ repositories {
 
 dependencies {
 
-<#if !sample.auto_add_support_lib?has_content || sample.auto_add_support_lib == "true">
-  <#if sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 7>
-    compile "com.android.support:support-v4:27.1.0"
-  <#elseif sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 13>
-    compile "com.android.support:support-v4:27.1.0"
-    compile "com.android.support:gridlayout-v7:27.1.0"
-    compile "com.android.support:cardview-v7:27.1.0"
-  <#else>
-    compile "com.android.support:support-v4:27.1.0"
-    compile "com.android.support:support-v13:27.1.0"
-    compile "com.android.support:cardview-v7:27.1.0"
+
+  <#-- TODO (jewalker): Revise once androidX is released to production. -->
+  <#if !sample.androidX?? || !sample.androidX?has_content || sample.androidX == "false">
+
+    <#if !sample.auto_add_support_lib?has_content || sample.auto_add_support_lib == "true">
+      <#if sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 7>
+        implementation "com.android.support:support-v4:27.1.1"
+      <#elseif sample.minSdk?matches(r'^\d+$') && sample.minSdk?number < 13>
+        implementation "com.android.support:support-v4:27.1.1"
+        implementation "com.android.support:gridlayout-v7:27.1.1"
+        implementation "com.android.support:cardview-v7:27.1.1"
+      <#else>
+        implementation "com.android.support:support-v4:27.1.1"
+        implementation "com.android.support:support-v13:27.1.1"
+        implementation "com.android.support:cardview-v7:27.1.1"
+      </#if>
+    </#if>
+
   </#if>
-</#if>
+
+
+
 
 <#list sample.dependency as dep>
     <#-- Output dependency after checking if it is a play services depdency and
     needs the latest version number attached. -->
     <@update_play_services_dependency dep="${dep}" />
 </#list>
+
 <#list sample.dependency_external as dep>
-    compile files(${dep})
+    implementation files(${dep})
 </#list>
 }
 
