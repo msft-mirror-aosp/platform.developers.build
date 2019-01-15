@@ -37,7 +37,6 @@ android {
      <#-- Note that target SDK is hardcoded in this template. We expect all samples
           to always use the most current SDK as their target. -->
     compileSdkVersion ${compile_sdk}
-    buildToolsVersion ${build_tools_version}
 }
 
 task preflight (dependsOn: parent.preflight) {
