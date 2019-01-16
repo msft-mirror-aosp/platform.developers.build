@@ -70,6 +70,10 @@ dependencies {
     implementation files(${dep})
 </#list>
 
+<#list sample.annotationProcessor as ap>
+    annotationProcessor "${ap}"
+</#list>
+
 <#if sample.wearable.has_handheld_app?has_content && sample.wearable.has_handheld_app?lower_case == "true">
     implementation ${play_services_wearable_dependency}
 
@@ -100,8 +104,6 @@ android {
     compileSdkVersion ${compile_sdk}
   </#if>
 
-    buildToolsVersion ${build_tools_version}
-
     defaultConfig {
         minSdkVersion ${min_sdk}
       <#if sample.targetSdkVersion?? && sample.targetSdkVersion?has_content>
@@ -109,6 +111,9 @@ android {
       <#else>
         targetSdkVersion ${compile_sdk}
       </#if>
+<#if sample.defaultConfig?has_content>
+        ${sample.defaultConfig}
+<#else>
     }
 
     compileOptions {
@@ -128,11 +133,6 @@ android {
         androidTest.setRoot('tests')
         androidTest.java.srcDirs = ['tests/src']
 
-<#if sample.defaultConfig?has_content>
-        defaultConfig {
-        ${sample.defaultConfig}
-        }
-<#else>
 </#if>
     }
 
