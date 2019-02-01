@@ -81,7 +81,9 @@
 <#assign build_tools_version='"28.0.3"'/>
 
 <#assign play_services_version="15.0.1"/>
-<#assign play_services_wearable_dependency="'com.google.android.gms:play-services-wearable:${play_services_version}'"/>
+<#assign play_services_version_wear="16.0.1"/>
+
+<#assign play_services_wearable_dependency="'com.google.android.gms:play-services-wearable:${play_services_version_wear}'"/>
 
 <#assign android_support_v13_dependency="'com.android.support:support-v13:28.0.0'"/>
 
