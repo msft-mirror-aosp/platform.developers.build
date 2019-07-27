@@ -119,7 +119,7 @@ in `layout/fragment_preferences.xml#19`.
 Pre-requisites
 --------------
 
-- Android SDK "android-Q"
+- Android SDK 29
 - Android Support Repository
 
 Screenshots
