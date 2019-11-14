@@ -452,8 +452,7 @@ public class TvInputPlayer implements TextRenderer {
         } catch (PackageManager.NameNotFoundException e) {
             versionName = "?";
         }
-        return "SampleTvInput/" + versionName + " (Linux;Android "
-                + Build.VERSION.RELEASE_OR_CODENAME +
+        return "SampleTvInput/" + versionName + " (Linux;Android " + Build.VERSION.RELEASE +
                 ") " + "ExoPlayerLib/" + ExoPlayerLibraryInfo.VERSION;
     }
 
