@@ -28,13 +28,13 @@ import android.os.IBinder;
 
 
 /**
- * Dummy account service for SyncAdapter. Note that this does nothing because this input uses a feed
+ * Stub account service for SyncAdapter. Note that this does nothing because this input uses a feed
  * which does not require any authentication.
  */
-public class DummyAccountService extends Service {
-    private static final String TAG = "DummyAccountService";
-    private DummyAuthenticator mAuthenticator;
-    public static final String ACCOUNT_NAME = "DummyAccount";
+public class StubAccountService extends Service {
+    private static final String TAG = "StubAccountService";
+    private StubAuthenticator mAuthenticator;
+    public static final String ACCOUNT_NAME = "StubAccount";
 
     public static Account getAccount(String accountType) {
         return new Account(ACCOUNT_NAME, accountType);
@@ -42,7 +42,7 @@ public class DummyAccountService extends Service {
 
     @Override
     public void onCreate() {
-        mAuthenticator = new DummyAuthenticator(this);
+        mAuthenticator = new StubAuthenticator(this);
     }
 
     @Override
@@ -51,11 +51,11 @@ public class DummyAccountService extends Service {
     }
 
     /**
-     * Dummy Authenticator used in {@link SyncAdapter}. This does nothing for all the operations
+     * Stub Authenticator used in {@link SyncAdapter}. This does nothing for all the operations
      * since channel/program feed does not require any authentication.
      */
-    public class DummyAuthenticator extends AbstractAccountAuthenticator {
-        public DummyAuthenticator(Context context) {
+    public class StubAuthenticator extends AbstractAccountAuthenticator {
+        public StubAuthenticator(Context context) {
             super(context);
         }
 
