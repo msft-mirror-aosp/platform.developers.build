@@ -19,9 +19,10 @@ package com.example.android.pdfrendererbasic.tests;
 import android.content.pm.ActivityInfo;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
-import android.test.suitebuilder.annotation.LargeTest;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.test.filters.LargeTest;
 
 import com.example.android.pdfrendererbasic.MainActivity;
 import com.example.android.pdfrendererbasic.PdfRendererBasicFragment;

@@ -16,15 +16,16 @@
 
 package com.example.android.documentcentricapps.tests;
 
-import com.example.android.documentcentricapps.DocumentCentricActivity;
-import com.example.android.documentcentricapps.R;
-
 import android.app.ActivityManager;
 import android.content.Context;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
-import android.test.suitebuilder.annotation.LargeTest;
 import android.widget.Button;
+
+import androidx.test.filters.LargeTest;
+
+import com.example.android.documentcentricapps.DocumentCentricActivity;
+import com.example.android.documentcentricapps.R;
 
 import java.util.List;
 
