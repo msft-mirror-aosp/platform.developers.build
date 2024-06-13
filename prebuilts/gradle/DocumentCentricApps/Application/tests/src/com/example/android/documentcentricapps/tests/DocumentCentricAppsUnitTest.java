@@ -16,14 +16,15 @@
 
 package com.example.android.documentcentricapps.tests;
 
-import com.example.android.documentcentricapps.DocumentCentricActivity;
-import com.example.android.documentcentricapps.R;
-
 import android.content.Intent;
 import android.test.ActivityUnitTestCase;
-import android.test.suitebuilder.annotation.MediumTest;
 import android.widget.Button;
 import android.widget.CheckBox;
+
+import androidx.test.filters.MediumTest;
+
+import com.example.android.documentcentricapps.DocumentCentricActivity;
+import com.example.android.documentcentricapps.R;
 
 /**
  * Unit tests for DocumentCentricApps sample.
